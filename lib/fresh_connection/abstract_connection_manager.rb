@@ -5,7 +5,7 @@ module FreshConnection
     attr_reader :spec_name
 
     def initialize(spec_name = nil)
-      @spec_name = (spec_name || "replica").to_s
+      @spec_name = (spec_name || 'read_db').to_s
     end
 
     def replica_connection
@@ -25,4 +25,3 @@ module FreshConnection
     end
   end
 end
-

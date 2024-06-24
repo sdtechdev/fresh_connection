@@ -31,7 +31,7 @@ module FreshConnection
 
       def establish_fresh_connection(spec_name = nil)
         spec_name = spec_name.to_s
-        spec_name = "replica" if spec_name.empty?
+        spec_name = 'read_db' if spec_name.empty?
         @_replica_spec_name = spec_name
 
         __replica_handler.refresh_connection(replica_spec_name)
@@ -54,7 +54,7 @@ module FreshConnection
 
       def __search_replica_spec_name
         if self == ActiveRecord::Base
-          "replica"
+          'read_db'
         else
           superclass.replica_spec_name
         end
